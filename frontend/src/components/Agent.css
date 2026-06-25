@@ -1,0 +1,271 @@
+.agent-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.agent-header {
+  background: #FF8000;
+  color: white;
+  padding: 20px 28px;
+  border-bottom: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.je-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header-text h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.header-text p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 4px 0 0 0;
+  font-weight: 400;
+}
+
+.reset-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+}
+
+.agent-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fafbfc;
+}
+
+.message {
+  display: flex;
+  gap: 12px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.agent {
+  justify-content: flex-start;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.agent .message-bubble {
+  background: white;
+  color: #1a1a1a;
+  border: 1px solid #e5e7eb;
+}
+
+.user .message-bubble {
+  background: #ff6b00;
+  color: white;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.option-btn {
+  background: white;
+  border: 1px solid #FF8000;
+  color: #FF8000;
+  padding: 11px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: inherit;
+}
+
+.option-btn:hover {
+  background: #FF8000;
+  color: white;
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(255, 149, 0, 0.2);
+}
+
+.option-btn:active {
+  transform: scale(0.98);
+}
+
+.date-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #FF8000;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  background: white;
+  color: #1a1a1a;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #FF8000;
+  box-shadow: 0 0 0 3px rgba(255, 149, 0, 0.1);
+}
+
+.typing {
+  display: flex;
+  gap: 4px;
+}
+
+.typing span {
+  width: 8px;
+  height: 8px;
+  background: #9ca3af;
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+/* Tabla de resultados */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+table th,
+table td {
+  border: 1px solid #e5e7eb;
+  padding: 12px 10px;
+  text-align: left;
+}
+
+table th {
+  background: #fff8f3;
+  font-weight: 600;
+  color: #1a1a1a;
+  border-bottom: 2px solid #FF8000;
+}
+
+table tr:hover {
+  background: #fffbf8;
+}
+
+table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: #FF8000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .agent-container {
+    height: 100vh;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .message-bubble {
+    max-width: 85%;
+    font-size: 13px;
+  }
+
+  .agent-header {
+    border-radius: 0;
+    padding: 18px 16px;
+  }
+
+  .agent-messages {
+    padding: 16px;
+  }
+
+  .option-btn {
+    font-size: 12px;
+    padding: 9px 12px;
+  }
+
+  .reset-btn {
+    right: 16px;
+  }
+}
